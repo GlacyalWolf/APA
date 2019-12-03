@@ -1,4 +1,4 @@
-package com.example.apa.ui.main;
+package com.example.apa.View;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -13,26 +13,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.apa.R;
+import com.example.apa.ViewModel.RegisterViewModel;
 
-public class MainFragment extends Fragment {
+public class RegisterFragment extends Fragment {
 
-    private MainViewModel mViewModel;
+    private RegisterViewModel mViewModel;
 
-    public static MainFragment newInstance() {
-        return new MainFragment();
+    public static RegisterFragment newInstance() {
+        return new RegisterFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.main_fragment, container, false);
+        return inflater.inflate(R.layout.register_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(RegisterViewModel.class);
         // TODO: Use the ViewModel
     }
 
