@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.apa.R;
 import com.example.apa.ViewModel.RegisterViewModel;
@@ -25,6 +27,10 @@ public class RegisterFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    EditText user, pswd, mail;
+    Button register;
+    RegisterViewModel registerViewModel;
 
 
     public RegisterFragment() {
@@ -62,8 +68,18 @@ public class RegisterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.register_fragment, container, false);
+        registerViewModel = ViewModelProviders.of(this).get(RegisterViewModel.class);
+
+        View ui_layout  = inflater.inflate(R.layout.register_fragment, container, false);
+
+        user = ui_layout.findViewById(R.id.user_field);
+        pswd = ui_layout.findViewById(R.id.password_field);
+        mail = ui_layout.findViewById(R.id.mail_field);
+        register = ui_layout.findViewById(R.id.register_button);
+
+        return ui_layout;
+
+
     }
 
 }
