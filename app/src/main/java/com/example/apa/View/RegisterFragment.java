@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,6 +77,17 @@ public class RegisterFragment extends Fragment {
         pswd = ui_layout.findViewById(R.id.password_field);
         mail = ui_layout.findViewById(R.id.mail_field);
         register = ui_layout.findViewById(R.id.register_button);
+
+
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RegisterViewModel.register_user(user.getText().toString(),pswd.getText().toString(),mail.getText().toString());
+                //Navigation.findNavController(v).navigate(R.id.Login);
+            }
+        });
+
 
         return ui_layout;
 
