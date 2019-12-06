@@ -1,6 +1,8 @@
 package com.example.apa.Model;
 
-public class usuario {
+import java.io.Serializable;
+
+public class usuario implements Serializable {
     String username;
     String password;
     String mail;

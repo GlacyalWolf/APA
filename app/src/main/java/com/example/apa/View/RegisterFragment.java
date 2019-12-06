@@ -2,10 +2,9 @@ package com.example.apa.View;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -34,8 +33,8 @@ public class RegisterFragment extends Fragment {
     RegisterViewModel registerViewModel;
 
 
-    public RegisterFragment() {
-        // Required empty public constructor
+    public static RegisterFragment newInstance() {
+        return new RegisterFragment();
     }
 
     /**
@@ -83,8 +82,10 @@ public class RegisterFragment extends Fragment {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RegisterViewModel.register_user(user.getText().toString(),pswd.getText().toString(),mail.getText().toString());
-                //Navigation.findNavController(v).navigate(R.id.Login);
+                RegisterViewModel.register_user(user.getText().toString(),pswd.getText().toString(),mail.getText().toString(),getContext());
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new Login()).commit();
+
             }
         });
 
