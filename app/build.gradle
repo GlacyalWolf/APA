@@ -32,5 +32,4 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.0.0'
 
 
-
 }
