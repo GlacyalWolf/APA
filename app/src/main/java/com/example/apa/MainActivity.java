@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
+import com.example.apa.View.Login;
 import com.example.apa.View.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         fm = getSupportFragmentManager();
-        fm.beginTransaction().replace(R.id.container, new RegisterFragment()).commit();
+        fm.beginTransaction().replace(R.id.container, new Login()).commit();
     }
 }
