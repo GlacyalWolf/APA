@@ -10,8 +10,10 @@ import androidx.lifecycle.ViewModelProviders;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.apa.R;
+import com.example.apa.ViewModel.HomeViewModel;
 import com.example.apa.ViewModel.LoginViewModel;
 
 
@@ -24,6 +26,8 @@ public class Home extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    HomeViewModel homeViewModel;
+    Button usr_image, registrar_horas, assitencia;
 
 
 
@@ -63,6 +67,34 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        homeViewModel= ViewModelProviders.of(this).get(HomeViewModel.class);
+        View ui_layout  = inflater.inflate(R.layout.fragment_home, container, false);
+
+        usr_image=ui_layout.findViewById(R.id.usr_image);
+        registrar_horas=ui_layout.findViewById(R.id.registrar_horas_button);
+        assitencia=ui_layout.findViewById(R.id.asistencia_button);
+
+
+        registrar_horas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        assitencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        usr_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
