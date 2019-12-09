@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.apa.R;
 import com.example.apa.ViewModel.HomeViewModel;
@@ -27,7 +29,8 @@ public class Home extends Fragment {
     private String mParam1;
     private String mParam2;
     HomeViewModel homeViewModel;
-    Button usr_image, registrar_horas, assitencia;
+    ImageView usr_image;
+    Button registrar_horas, assitencia;
 
 
 
@@ -89,12 +92,15 @@ public class Home extends Fragment {
             }
         });
 
+
         usr_image.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
             }
         });
+
 
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
