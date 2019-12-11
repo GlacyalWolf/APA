@@ -11,14 +11,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Repository {
     private Context context;
 
     private static Repository repo;
-    private static List<usuario> ulist;
-    public static final String FILE_NAME = "listausuarios";
+    private static ArrayList<usuario> ulist;
+    public static final String FILE_NAME = "/listausuarios";
 
     public Repository() {
         this.context = context;
@@ -30,19 +31,23 @@ public class Repository {
         }
         return repo;
     }
+
     //Metods to acces document
     public static void addUser(String name, String pwd, String mail, Context c){
+        File fichero= new File(c.getApplicationContext().getFilesDir().getPath()+FILE_NAME);
+        usuario usr = new usuario(name,pwd,mail);
 
-
-        usuario usr;
-
-        usr = new usuario(name,pwd,mail);
         try {
-            FileOutputStream fos = c.openFileOutput(FILE_NAME, Context.MODE_PRIVATE);
-            ObjectOutputStream os = new ObjectOutputStream(fos);
-            os.writeObject(usr);
-            os.close();
-            fos.close();
+            if(!fichero.exists()) {
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero));
+                oos.writeObject(usr);
+                oos.flush();
+                oos.close();
+            }
+            else{
+                ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream(fichero))
+            }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
