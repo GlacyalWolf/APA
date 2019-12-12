@@ -6,9 +6,12 @@ import android.media.JetPlayer;
 import com.example.apa.Model.usuario;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -18,7 +21,7 @@ public class Repository {
     private Context context;
 
     private static Repository repo;
-    private static ArrayList<usuario> ulist;
+
     public static final String FILE_NAME = "/listausuarios";
 
     public Repository() {
@@ -61,6 +64,24 @@ public class Repository {
             e.printStackTrace();
         }
 
+
+    }
+
+    public static boolean checkUser(String name,String pwd,Context c) throws IOException, ClassNotFoundException {
+        boolean check= false;
+        ArrayList<usuario> ulist=new ArrayList<>();
+        File fichero= new File(c.getApplicationContext().getFilesDir().getPath()+FILE_NAME);
+        ObjectInputStream ois=new ObjectInputStream(new FileInputStream(fichero));
+        usuario usr=(usuario) ois.readObject();
+
+        while (usr != null){
+            if(usr.getUsername().equals(name) && usr.getPassword().equals(pwd)){
+                check=true;
+                break;
+            }
+            usr=(usuario) ois.readObject();
+        }
+        return check;
 
     }
 
