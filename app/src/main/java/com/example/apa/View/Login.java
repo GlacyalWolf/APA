@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.apa.R;
 import com.example.apa.ViewModel.LoginViewModel;
+
+import java.io.IOException;
 
 
 public class Login extends Fragment {
@@ -89,7 +92,21 @@ public class Login extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new Home()).commit();
+                try {
+
+                    if (LoginViewModel.login_function(username.getText().toString(),password.getText().toString(),getContext())) {
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new Home()).commit();
+                    }
+                    else{
+                        Toast toast= Toast.makeText(getContext(),"Username or password is wrong",Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

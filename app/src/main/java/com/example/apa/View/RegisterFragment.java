@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.apa.R;
+import com.example.apa.Repository;
 import com.example.apa.ViewModel.RegisterViewModel;
 
 public class RegisterFragment extends Fragment {
