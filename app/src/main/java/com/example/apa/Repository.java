@@ -25,7 +25,7 @@ public class Repository {
         this.context = context;
     }
 
-    public static Repository get(){
+    public static Repository get(Context context){
         if(repo == null){
             repo = new Repository();
         }
@@ -45,7 +45,7 @@ public class Repository {
                 oos.close();
             }
             else{
-                ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream(fichero))
+                ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream(fichero));
             }
 
         } catch (FileNotFoundException e) {
