@@ -45,7 +45,14 @@ public class Repository {
                 oos.close();
             }
             else{
-                ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream(fichero));
+                ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream(fichero,true)){
+                    protected void writeStreamHeader() throws IOException {
+                        reset();
+                    }
+                };
+                oos2.writeObject(usr);
+                oos2.flush();
+                oos2.close();
             }
 
         } catch (FileNotFoundException e) {
