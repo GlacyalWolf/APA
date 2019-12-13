@@ -30,14 +30,11 @@ public class Login extends Fragment {
 
     private EditText username, password;
     private Button register,  login;
-
     LoginViewModel loginViewModel;
 
 
 
     public Login() {
-
-
     }
 
     /**
