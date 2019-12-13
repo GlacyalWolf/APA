@@ -1,7 +1,5 @@
 package com.example.apa.View;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,12 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.apa.R;
 import com.example.apa.ViewModel.HomeViewModel;
-import com.example.apa.ViewModel.LoginViewModel;
 
 
 public class Home extends Fragment {
@@ -30,7 +26,7 @@ public class Home extends Fragment {
     private String mParam2;
     HomeViewModel homeViewModel;
     ImageView usr_image;
-    Button registrar_horas, assitencia;
+    Button entrada, assitencia,salida;
 
 
 
@@ -74,14 +70,22 @@ public class Home extends Fragment {
         View ui_layout  = inflater.inflate(R.layout.fragment_home, container, false);
 
         usr_image=ui_layout.findViewById(R.id.usr_image);
-        registrar_horas=ui_layout.findViewById(R.id.registrar_horas_button);
+        entrada=ui_layout.findViewById(R.id.entrada);
         assitencia=ui_layout.findViewById(R.id.asistencia_button);
+        salida=ui_layout.findViewById(R.id.salida);
 
 
-        registrar_horas.setOnClickListener(new View.OnClickListener() {
+        entrada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+            }
+        });
+
+        salida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });

@@ -23,16 +23,16 @@
             app:layout_constraintVertical_bias="0.692" />
 
         <Button
-            android:id="@+id/registrar_horas_button"
+            android:id="@+id/entrada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar Horas"
+            android:text="Entrada"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.551" />
+            app:layout_constraintVertical_bias="0.499" />
 
         <ImageView
             android:id="@+id/usr_image"
@@ -45,6 +45,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.252"
             tools:src="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/salida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="salida"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.597" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
