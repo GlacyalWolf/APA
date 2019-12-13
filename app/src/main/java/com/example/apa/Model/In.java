@@ -7,8 +7,8 @@ import java.util.Date;
 import java.util.Locale;
 
 public class In implements Serializable {
-    String day;
-    String hour;
+    private String day;
+    private String hour;
 
     public In() {
         Date date= new Date();
