@@ -69,7 +69,7 @@ public class Repository {
 
     public static boolean checkUser(String name,String pwd,Context c) throws IOException, ClassNotFoundException {
         boolean check= false;
-        ArrayList<usuario> ulist=new ArrayList<>();
+
         File fichero= new File(c.getApplicationContext().getFilesDir().getPath()+FILE_NAME);
         ObjectInputStream ois=new ObjectInputStream(new FileInputStream(fichero));
         usuario usr=(usuario) ois.readObject();
@@ -84,6 +84,8 @@ public class Repository {
         return check;
 
     }
+
+
 
 
     }
