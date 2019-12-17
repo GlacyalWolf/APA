@@ -78,6 +78,7 @@ public class Home extends Fragment {
         entrada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                HomeViewModel.addHora(getContext());
 
 
             }
@@ -93,6 +94,7 @@ public class Home extends Fragment {
         assitencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new HistorialHoras()).commit();
 
             }
         });
