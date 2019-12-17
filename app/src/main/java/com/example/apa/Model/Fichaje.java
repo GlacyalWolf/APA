@@ -1,5 +1,7 @@
 package com.example.apa.Model;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,6 +21,13 @@ public class Fichaje implements Serializable {
         this.salida = salida.format(date);
     }
 
+    public String getEntrada() {
+        return entrada;
+    }
+
+    public String getSalida() {
+        return salida;
+    }
 
 
 }

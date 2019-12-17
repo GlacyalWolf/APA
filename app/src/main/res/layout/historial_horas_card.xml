@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/entrada"
+        android:layout_width="204dp"
+        android:layout_height="46dp" />
+
+    <TextView
+        android:id="@+id/sortida"
+        android:layout_width="207dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_toEndOf="@+id/entrada"
+        android:layout_toRightOf="@+id/entrada" />
+
+</RelativeLayout>

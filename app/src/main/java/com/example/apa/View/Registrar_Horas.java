@@ -62,7 +62,8 @@ public class Registrar_Horas extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registrar__horas, container, false);
+        View v = inflater.inflate(R.layout.fragment_historial_horas,container,false);
+        return v;
     }
 
 
