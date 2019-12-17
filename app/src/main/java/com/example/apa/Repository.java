@@ -3,6 +3,7 @@ package com.example.apa;
 import android.content.Context;
 import android.media.JetPlayer;
 
+import com.example.apa.Model.Fichaje;
 import com.example.apa.Model.usuario;
 
 import java.io.File;
@@ -23,6 +24,7 @@ public class Repository {
     private static Repository repo;
 
     public static final String FILE_NAME = "/listausuarios";
+    public static final String FILE_NAME2 = "/listahoras";
 
     public Repository() {
         this.context = context;
@@ -70,7 +72,7 @@ public class Repository {
     public static boolean checkUser(String name,String pwd,Context c) throws IOException, ClassNotFoundException {
         boolean check= false;
 
-        File fichero= new File(c.getApplicationContext().getFilesDir().getPath()+FILE_NAME);
+        File fichero= new File(c.getApplicationContext().getFilesDir().getPath()+FILE_NAME2);
         ObjectInputStream ois=new ObjectInputStream(new FileInputStream(fichero));
         usuario usr=(usuario) ois.readObject();
 
@@ -84,6 +86,54 @@ public class Repository {
         return check;
 
     }
+
+    public static void addHora( Context c){
+        File fichero= new File(c.getApplicationContext().getFilesDir().getPath()+FILE_NAME2);
+        Fichaje fich = new Fichaje();
+
+        try {
+            if(!fichero.exists()) {
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero));
+                oos.writeObject(fich);
+                oos.flush();
+                oos.close();
+            }
+            else{
+                ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream(fichero,true)){
+                    protected void writeStreamHeader() throws IOException {
+                        reset();
+                    }
+                };
+                oos2.writeObject(fich);
+                oos2.flush();
+                oos2.close();
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public static ArrayList<Fichaje> listFichajes(Context c) throws IOException, ClassNotFoundException {
+        ArrayList<Fichaje> listaHoras= new ArrayList<>();
+
+        File fichero= new File(c.getApplicationContext().getFilesDir().getPath()+FILE_NAME2);
+        ObjectInputStream ois=new ObjectInputStream(new FileInputStream(fichero));
+        Fichaje fch=(Fichaje) ois.readObject();
+
+        while (fch != null){
+            listaHoras.add(fch);
+            fch=(Fichaje) ois.readObject();
+        }
+        return listaHoras;
+
+    }
+
+
 
 
 
