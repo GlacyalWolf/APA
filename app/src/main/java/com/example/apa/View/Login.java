@@ -90,13 +90,19 @@ public class Login extends Fragment {
             @Override
             public void onClick(View v) {
                 try {
-
-                    if (LoginViewModel.login_function(username.getText().toString(),password.getText().toString(),getContext())) {
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new Home()).commit();
+                    if(username.getText().equals("admin") & password.getText().equals("admin")){
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new admin_home()).commit();
                     }
-                    else{
-                        Toast toast= Toast.makeText(getContext(),"Username or password is wrong",Toast.LENGTH_SHORT);
-                        toast.show();
+
+                    else {
+
+
+                        if (LoginViewModel.login_function(username.getText().toString(), password.getText().toString(), getContext())) {
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new Home()).commit();
+                        } else {
+                            Toast toast = Toast.makeText(getContext(), "Username or password is wrong", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
                     }
 
                 } catch (IOException e) {
