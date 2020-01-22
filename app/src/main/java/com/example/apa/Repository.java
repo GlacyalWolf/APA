@@ -133,6 +133,39 @@ public class Repository {
 
     }
 
+    public static void deleteUser(String wname,Context c){
+        File fichero= new File(c.getApplicationContext().getFilesDir().getPath()+FILE_NAME);
+        ArrayList<usuario> listUsers=new ArrayList<usuario>();
+        try {
+            ObjectInputStream ois=new ObjectInputStream(new FileInputStream(fichero));
+            ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream(fichero));
+            usuario usr=(usuario) ois.readObject();
+            while (usr !=null){
+                listUsers.add(usr);
+            }
+            ois.close();
+
+            for(usuario u: listUsers){
+                if(wname.equals(usr.getUsername())){
+                    listUsers.remove(u);
+                    break;
+                }
+                usr=(usuario) ois.readObject();
+            }
+            for(usuario u: listUsers){
+                oos.writeObject(u);
+            }
+            oos.flush();
+            oos.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 
