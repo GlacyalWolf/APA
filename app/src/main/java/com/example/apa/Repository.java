@@ -37,36 +37,30 @@ public class Repository {
         return repo;
     }
 
-    //Agregar Usuario en el registro
+    //Metods to acces document
     public static void addUser(String name, String pwd, String mail, Context c){
         File fichero= new File(c.getApplicationContext().getFilesDir().getPath()+FILE_NAME);
-
         usuario usr = new usuario(name,pwd,mail);
 
         try {
             if(!fichero.exists()) {
                 ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero));
-                ArrayList<usuario> listaUsr = new ArrayList<usuario>();
-
-                listaUsr.add(usr);
-                oos.writeObject(listaUsr);
-
+                oos.writeObject(usr);
                 oos.flush();
                 oos.close();
             }
             else{
-                ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream(fichero));
-                ObjectInputStream ois2 = new ObjectInputStream(new FileInputStream(fichero));
-                ArrayList<usuario> listaextra = (ArrayList<usuario>) ois2.readObject();
-
-                listaextra.add(usr);
-                oos2.writeObject(listaextra);
-                ois2.close();
+                ObjectOutputStream oos2 = new ObjectOutputStream(new FileOutputStream(fichero,true)){
+                    protected void writeStreamHeader() throws IOException {
+                        reset();
+                    }
+                };
+                oos2.writeObject(usr);
                 oos2.flush();
                 oos2.close();
             }
 
-        } catch (FileNotFoundException | ClassNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -80,14 +74,14 @@ public class Repository {
 
         File fichero= new File(c.getApplicationContext().getFilesDir().getPath()+FILE_NAME2);
         ObjectInputStream ois=new ObjectInputStream(new FileInputStream(fichero));
-        ArrayList<usuario> listUser= (ArrayList<usuario>) ois.readObject();
+        usuario usr=(usuario) ois.readObject();
 
-        for (usuario usr:listUser){
+        while (usr != null){
             if(usr.getUsername().equals(name) && usr.getPassword().equals(pwd)){
                 check=true;
                 break;
             }
-
+            usr=(usuario) ois.readObject();
         }
         return check;
 
@@ -139,7 +133,10 @@ public class Repository {
 
     }
 
-    }
 
 
+
+
+
+}
 
