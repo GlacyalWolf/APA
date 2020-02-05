@@ -1,12 +1,10 @@
-package com.example.apa.View;
+package com.example.apa.View.User;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.apa.R;
-import com.example.apa.Repository;
-import com.example.apa.ViewModel.RegisterViewModel;
+import com.example.apa.ViewModel.User.RegisterViewModel;
 
 public class RegisterFragment extends Fragment {
 

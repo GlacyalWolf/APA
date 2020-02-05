@@ -1,7 +1,5 @@
-package com.example.apa.View;
+package com.example.apa.View.User;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,7 +11,7 @@ import android.view.ViewGroup;
 import com.example.apa.R;
 
 
-public class admin_home extends Fragment {
+public class HistorialHoras extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,7 +23,7 @@ public class admin_home extends Fragment {
 
 
 
-    public admin_home() {
+    public HistorialHoras() {
         // Required empty public constructor
     }
 
@@ -35,11 +33,11 @@ public class admin_home extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment admin_home.
+     * @return A new instance of fragment HistorialHoras.
      */
     // TODO: Rename and change types and number of parameters
-    public static admin_home newInstance(String param1, String param2) {
-        admin_home fragment = new admin_home();
+    public static HistorialHoras newInstance(String param1, String param2) {
+        HistorialHoras fragment = new HistorialHoras();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,7 +58,7 @@ public class admin_home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_home, container, false);
+        return inflater.inflate(R.layout.fragment_historial_horas, container, false);
     }
 
 

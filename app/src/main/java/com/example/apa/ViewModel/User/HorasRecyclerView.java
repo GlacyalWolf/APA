@@ -1,4 +1,4 @@
-package com.example.apa.ViewModel;
+package com.example.apa.ViewModel.User;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,6 @@ import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apa.Model.Fichaje;
-import com.example.apa.Model.usuario;
 import com.example.apa.R;
 
 import java.util.ArrayList;

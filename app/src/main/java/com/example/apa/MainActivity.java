@@ -5,8 +5,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
-import com.example.apa.View.Login;
-import com.example.apa.View.RegisterFragment;
+import com.example.apa.View.User.Login;
 
 public class MainActivity extends AppCompatActivity {
     FragmentManager fm;

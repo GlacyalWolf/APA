@@ -1,4 +1,4 @@
-package com.example.apa.ViewModel;
+package com.example.apa.ViewModel.Admin;
 
 import androidx.lifecycle.ViewModel;
 

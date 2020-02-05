@@ -1,4 +1,4 @@
-package com.example.apa.View;
+package com.example.apa.View.User;
 
 import android.os.Bundle;
 
@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.apa.R;
-import com.example.apa.ViewModel.HomeViewModel;
+import com.example.apa.ViewModel.User.HomeViewModel;
 
 
 public class Home extends Fragment {
