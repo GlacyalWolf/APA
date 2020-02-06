@@ -142,6 +142,7 @@ public class Repository {
             usuario usr=(usuario) ois.readObject();
             while (usr !=null){
                 listUsers.add(usr);
+                usr=(usuario) ois.readObject();
             }
             ois.close();
 
@@ -164,6 +165,24 @@ public class Repository {
             e.printStackTrace();
         }
 
+    }
+
+    public static ArrayList<usuario> listaUser(){
+        ArrayList<usuario> usrlist=new ArrayList<usuario>();
+
+        try {
+            ObjectInputStream ois= new ObjectInputStream(new FileInputStream(FILE_NAME));
+            usuario usr=(usuario) ois.readObject();
+            while (usr != null){
+                usrlist.add(usr);
+                usr=(usuario) ois.readObject();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return usrlist;
     }
 
 
