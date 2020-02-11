@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class HorasRecyclerView extends RecyclerView.Adapter<HorasRecyclerView.AdapterHoras> {
     static ArrayList<Fichaje> fechaList;
     static NavController nv;
+
     public static class AdapterHoras extends RecyclerView.ViewHolder {
         TextView entrada, salida;
 
